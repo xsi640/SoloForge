@@ -30,6 +30,16 @@ description: 专注于 UI/UX 设计，帮助人和 AI 梳理用户流程、页�
 → 形成 UI/UX 设计稿
 ```
 
+## 阶段 1 输入文件
+
+开始阶段 2 前，必须先读取阶段 1 的最终需求分析文档：
+
+```text
+docs/stages/01-requirement-analysis/requirement-analysis.md
+```
+
+不要读取阶段 1 的填写模板作为正式需求输入。若该文件不存在，或仍包含未处理的未确定事项，应先回到阶段 1 完成确认。
+
 ## 适用场景
 
 - 需要设计一个新页面或一组页面
@@ -40,7 +50,9 @@ description: 专注于 UI/UX 设计，帮助人和 AI 梳理用户流程、页�
 
 ## 先告诉人怎么做
 
-### 第 1 步：明确界面目标
+### 第 1 步：读取阶段 1 需求并明确界面目标
+
+先读取 `docs/stages/01-requirement-analysis/requirement-analysis.md`，再明确本次要设计的界面或功能。
 
 人只需要提供最少的信息：
 

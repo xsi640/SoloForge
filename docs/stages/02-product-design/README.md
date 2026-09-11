@@ -19,10 +19,18 @@
 
 ## 先准备什么
 
-打开下面两份文件：
+阶段 2 开始时，必须先读取阶段 1 的最终需求文档：
+
+```text
+docs/stages/01-requirement-analysis/requirement-analysis.md
+```
+
+然后打开下面两份文件：
 
 - [UI/UX 设计模板](product-design-template.md)
 - [UI/UX Design Skill](SKILL.md)
+
+阶段 1 的 `requirement-analysis-template.md` 不是阶段 2 的输入文件。
 
 开始时只需要提供：
 
