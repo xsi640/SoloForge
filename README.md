@@ -29,9 +29,9 @@ SoloForge 的价值在于：
 - [docs/AI-Development-Framework.md](docs/AI-Development-Framework.md)  
   总框架文档，说明 AI 时代软件开发的总体工作方法、阶段划分、AI 协作方式和关键输出。
 - [docs/stages/01-requirement-analysis/README.md](docs/stages/01-requirement-analysis/README.md)  
-  阶段 1：需求分析阶段模板。
+  阶段 1：需求分析阶段。通过交互式对话把一个想法逐步整理成需求分析文档。
 - [docs/stages/02-product-design/README.md](docs/stages/02-product-design/README.md)  
-  阶段 2：产品设计与 UI/UX 模板。
+  阶段 2：产品设计阶段，先做 UX 再做 UI。先交互式生成 UX 文档，再生成 UI 提示词与效果图。
 - [docs/stages/03-implementation/README.md](docs/stages/03-implementation/README.md)  
   阶段 3：研发阶段模板，包含任务文档与进度跟踪建议。
 - [docs/stages/04-testing/README.md](docs/stages/04-testing/README.md)  
