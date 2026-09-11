@@ -28,10 +28,20 @@ SoloForge 的价值在于：
 
 - [docs/AI-Development-Framework.md](docs/AI-Development-Framework.md)  
   总框架文档，说明 AI 时代软件开发的总体工作方法、阶段划分、AI 协作方式和关键输出。
+- [docs/stages/01-requirement-analysis/README.md](docs/stages/01-requirement-analysis/README.md)  
+  阶段 1：需求分析阶段模板。
+- [docs/stages/02-product-design/README.md](docs/stages/02-product-design/README.md)  
+  阶段 2：产品设计与 UI/UX 模板。
+- [docs/stages/03-implementation/README.md](docs/stages/03-implementation/README.md)  
+  阶段 3：研发阶段模板，包含任务文档与进度跟踪建议。
+- [docs/stages/04-testing/README.md](docs/stages/04-testing/README.md)  
+  阶段 4：测试阶段模板。
+- [docs/stages/05-release/README.md](docs/stages/05-release/README.md)  
+  阶段 5：发布阶段模板。
 
 ## 当前推荐的开发方法
 
-### 1. Idea 与目标确认
+### 1. 需求分析阶段
 - 明确要解决的问题
 - 确定目标用户和核心价值
 - 设定成功标准
@@ -114,7 +124,7 @@ AI 不承担最终决策，最终判断和责任仍然由人来负责。
 
 如果你要直接用这个方法，建议按下面顺序推进：
 
-1. 先写清楚 idea 与目标
+1. 先做需求分析
 2. 再做产品设计与 UI/UX
 3. 然后形成技术方案、API 说明和任务文档
 4. 接着执行开发与测试
