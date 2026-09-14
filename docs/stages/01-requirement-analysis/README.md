@@ -57,7 +57,7 @@ docs/stages/01-requirement-analysis/requirement-analysis.md
 
 这个文件名和路径固定不变，阶段 2 会直接读取它作为输入。
 
-文档的章节结构可以参考 [requirement-document-structure.md](requirement-document-structure.md)，但这是给 AI 用的结构说明，不需要你填写。
+文档的章节结构见 `SKILL.md` 中的「最终文档结构」一节，这是给 AI 用的结构说明，不需要你填写。
 
 ---
 
@@ -95,6 +95,7 @@ AI 会先总结它目前理解到的内容，然后只提出少量最关键的�
 - 目标用户
 - 要解决的问题
 - 需求目标
+- 模块边界说明
 - 成功标准
 - 范围与边界
 - 约束与风险
