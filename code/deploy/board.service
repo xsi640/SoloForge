@@ -1,0 +1,46 @@
+# 团队任务看板 systemd 单元样例
+#
+# 安装：cp board.service /etc/systemd/system/board.service
+#       systemctl daemon-reload && systemctl enable --now board
+# 前提：/opt/board 下已有 board.jar 与 application.yml，且该目录属主为运行用户 board。
+
+[Unit]
+Description=团队任务看板（Board）
+Documentation=file:///opt/board/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# 以专用低权限用户运行，不要用 root。创建方式见 deploy/README.md 的“创建运行用户与目录”。
+User=board
+Group=board
+# 数据目录 data/ 相对工作目录生成，即 /opt/board/data/board.mv.db。
+WorkingDirectory=/opt/board
+ExecStart=/usr/bin/java -Xms256m -Xmx512m -jar /opt/board/board.jar
+# java 不在 /usr/bin 时，用 which java 或 readlink -f $(which java) 查出绝对路径后替换。
+
+# 常驻守护：进程退出即自动拉起，间隔 5 秒。
+Restart=always
+RestartSec=5
+# 手动 stop 时 Spring Boot 优雅停机返回 143，声明为成功可避免 systemctl 记录成失败。
+SuccessExitStatus=143
+
+# 环境变量覆盖 application.yml 中的同名配置，去掉注释即生效。
+# Environment=BOARD_PORT=8080
+# Environment=BOARD_DB_URL=jdbc:h2:file:./data/board;DB_CLOSE_DELAY=-1
+# Environment=BOARD_ADMIN_USERNAME=admin
+# Environment=BOARD_ADMIN_DISPLAY_NAME=管理员
+# Environment=BOARD_ADMIN_PASSWORD=admin123
+
+# 日志统一交给 journald，用 journalctl -u board 查看。
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=board
+
+# 会话保存在内存中，进程重启后所有用户需重新登录，这是已知且已接受的行为。
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -31,15 +31,19 @@ SoloForge 的价值在于：
 - [docs/stages/01-requirement-analysis/README.md](docs/stages/01-requirement-analysis/README.md)  
   阶段 1：需求分析阶段。通过交互式对话把一个想法逐步整理成需求分析文档。
 - [docs/stages/02-product-design/README.md](docs/stages/02-product-design/README.md)  
-  阶段 2：产品设计阶段，先做 UX 再做 UI。先交互式生成 UX 文档，再生成 UI 提示词与效果图。
+  阶段 2：产品设计阶段，先做 UX 再做 UI。先交互式生成 UX 文档，再建立 UI 设计规范并直接产出设计图（也可只输出设计图提示词）。
 - [docs/stages/03-implementation/README.md](docs/stages/03-implementation/README.md)  
   阶段 3：研发阶段。先做技术架构选型，再拆解任务并实现。
+- [docs/stages/03-implementation/coding/SKILL.md](docs/stages/03-implementation/coding/SKILL.md)  
+  阶段 3B 的编码 Skill：任务数量较多时，先冻结契约、再按模块并行交给多个 AI 子代理，并由协调者统一完成集成与端到端验证。
 - [docs/stages/04-testing/README.md](docs/stages/04-testing/README.md)  
   阶段 4：测试阶段模板。
 - [docs/stages/05-release/README.md](docs/stages/05-release/README.md)  
   阶段 5：发布阶段模板。
+- [code/README.md](code/README.md)  
+  阶段 3 的落地实现：团队任务看板（Spring Boot + Vue），含阶段产物文档、部署手册与验证脚本；测试产物说明见 [code/test-artifacts/README.md](code/test-artifacts/README.md)。
 
-其中阶段 1、2、3 各有一份 `SKILL.md`，是给 AI 执行该阶段用的交互式指令；README 面向人阅读，说明阶段目标、操作步骤和固定产物。阶段 4、5 目前只有 README 模板。
+其中阶段 1、2、3 各有一份 `SKILL.md`，是给 AI 执行该阶段用的交互式指令；阶段 3 另有一份 `coding/SKILL.md`，用于任务数量较多时的编码。README 面向人阅读，说明阶段目标、操作步骤和固定产物。阶段 4、5 目前只有 README 模板。
 
 ## 当前推荐的开发方法
 

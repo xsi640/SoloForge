@@ -1,0 +1,1 @@
+import{i as e}from"./index-DExCzvGU.js";function t(){return e.get(`/members`)}function n(t){return e.post(`/members`,t)}function r(t,n){return e.put(`/members/${t}/password`,{password:n})}function i(t,n){return e.put(`/members/${t}/status`,{status:n})}var a=(e,t)=>{let n=e.__vccOpts||e;for(let[e,r]of t)n[e]=r;return n};export{i as a,r as i,n,t as r,a as t};

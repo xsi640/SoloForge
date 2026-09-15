@@ -46,27 +46,34 @@ description: 阶段 3 研发 Skill，分为 3A 和 3B 两步。3A 读取阶段 1
 阶段 1 输入：
 
 ```text
-docs/stages/01-requirement-analysis/requirement-analysis.md
+code/docs/requirement-analysis.md
 ```
 
 阶段 2 参考输入（可选）：
 
 ```text
-docs/stages/02-product-design/ux-design.md
-docs/stages/02-product-design/ui-design.md
+code/docs/ux-design.md
+code/docs/ui-design.md
 ```
 
 阶段 3A 输出：
 
 ```text
-docs/stages/03-implementation/tech-architecture.md
+code/docs/tech-architecture.md
 ```
 
 阶段 3B 输出：
 
 ```text
-docs/stages/03-implementation/tasks.md
-docs/stages/03-implementation/api-design.md
+code/docs/tasks.md
+code/docs/api-design.md
+```
+
+编码子 Skill（任务数量较多时使用）：
+
+```text
+docs/stages/03-implementation/coding/SKILL.md
+docs/stages/03-implementation/coding/templates/agent-task-brief.md
 ```
 
 文件名固定，不得改名，否则后续阶段无法读取。
@@ -109,7 +116,7 @@ docs/stages/03-implementation/api-design.md
 AI 必须先读取：
 
 ```text
-docs/stages/01-requirement-analysis/requirement-analysis.md
+code/docs/requirement-analysis.md
 ```
 
 提取并总结与架构有关的内容：
@@ -237,7 +244,7 @@ AI 应向用户展示最终架构草稿，并明确询问：
 用户确认后，生成：
 
 ```text
-docs/stages/03-implementation/tech-architecture.md
+code/docs/tech-architecture.md
 ```
 
 这个文件是阶段 3B 拆解任务的唯一架构输入。
@@ -294,7 +301,7 @@ docs/stages/03-implementation/tech-architecture.md
 我现在开始阶段 3A：技术架构选型。
 
 请先读取：
-docs/stages/01-requirement-analysis/requirement-analysis.md
+code/docs/requirement-analysis.md
 
 我不填写架构模板，请通过交互式对话引导我完成：
 1. 先总结需求中的交付形态、模块和已知约束；
@@ -305,7 +312,7 @@ docs/stages/01-requirement-analysis/requirement-analysis.md
 6. 将自查发现的问题逐条向我确认；
 7. 逐项处理所有待确认事项，包括过程中新增的事项；
 8. 我最终确认后，生成：
-docs/stages/03-implementation/tech-architecture.md
+code/docs/tech-architecture.md
 
 不要新增需求之外的功能，不要修改已确认的 UX/UI 流程，不要开始拆任务或写业务代码。
 ```
@@ -371,7 +378,7 @@ docs/stages/03-implementation/tech-architecture.md
 AI 必须先读取：
 
 ```text
-docs/stages/03-implementation/tech-architecture.md
+code/docs/tech-architecture.md
 ```
 
 提取并总结：
@@ -419,11 +426,11 @@ AI 按架构文档中的 `MODULE-###` 逐模块拆解任务，每个任务必须
 生成：
 
 ```text
-docs/stages/03-implementation/tasks.md
+code/docs/tasks.md
 ```
 
 ```text
-docs/stages/03-implementation/api-design.md
+code/docs/api-design.md
 ```
 
 API 文档必须与架构文档中的接口约定一致，不得新增未确认的接口或字段。
@@ -436,6 +443,8 @@ API 文档必须与架构文档中的接口约定一致，不得新增未确认�
 - 每完成一个任务，更新任务状态和实际产出；
 - 发现架构不可行时，停下来回到 3A 修改架构文档；
 - 发现需求或 UX 问题时，回到对应阶段修改，不要在实现里静默改掉。
+
+任务数量较多时，应改用并行编码方式：按 [coding/SKILL.md](coding/SKILL.md) 先冻结契约，再按模块切分给多个 AI 子代理并行实现，最后由协调者统一完成集成与端到端验证。任务书模板见 [coding/templates/agent-task-brief.md](coding/templates/agent-task-brief.md)。
 
 ### 第 6 步：处理实现阶段的待确认事项
 
@@ -519,7 +528,7 @@ API 文档必须与架构文档中的接口约定一致，不得新增未确认�
 我现在开始阶段 3B：任务拆解与代码实现。
 
 请先读取：
-docs/stages/03-implementation/tech-architecture.md
+code/docs/tech-architecture.md
 
 我不填写任务模板，请通过交互式对话引导我完成：
 1. 先总结架构中的分层、模块、数据和接口约定；
@@ -531,8 +540,8 @@ docs/stages/03-implementation/tech-architecture.md
 7. 实现过程中持续更新任务状态；
 8. 逐项处理所有待确认事项；
 9. 我最终确认后，定稿：
-docs/stages/03-implementation/tasks.md
-docs/stages/03-implementation/api-design.md
+code/docs/tasks.md
+code/docs/api-design.md
 
 不要重新做技术选型，不要修改需求和已确认的 UX/UI 流程。如果发现架构不可行，先告诉我并回到阶段 3A。
 ```

@@ -16,7 +16,7 @@ description: 通过交互式对话，把用户的一个想法逐步整理成最�
 阶段 1 定稿后，必须将最终需求分析文档保存为：
 
 ```text
-docs/stages/01-requirement-analysis/requirement-analysis.md
+code/docs/requirement-analysis.md
 ```
 
 文件名和路径固定不变。阶段 2 必须直接读取 `requirement-analysis.md`。
@@ -223,7 +223,7 @@ AI 应使用类似下面的格式进行确认：
 - 每个未确定事项都已确认、排除或明确延期
 - 需求文档中保留了延期事项及其后续处理方式
 
-最终输出应保存为 `docs/stages/01-requirement-analysis/requirement-analysis.md`，作为阶段 2 直接读取的需求分析文档。
+最终输出应保存为 `code/docs/requirement-analysis.md`，作为阶段 2 直接读取的需求分析文档。
 
 ## AI 的提问策略
 
@@ -328,7 +328,7 @@ AI 应始终以“引导式对话”方式与用户交流，而不是一上来�
 
 最终交付物应为：
 
-- `docs/stages/01-requirement-analysis/requirement-analysis.md`
+- `code/docs/requirement-analysis.md`
 - 每个未确定事项及其最终处理结果
 
 ## 目标语气

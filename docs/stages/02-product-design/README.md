@@ -16,19 +16,21 @@
 读取已确认的 ux-design.md
 → 确认视觉方向和全局设计系统
 → 生成单页提示词和一次性完整提示词
-→ 使用 pen.dev 生成设计图
-→ 回填效果图链接和版本
+→ 直接输出设计图（默认），或输出设计图提示词
+→ 回填设计图路径、尺寸和版本
 → 生成 ui-design.md
 ```
 
 两个步骤严格有先后关系，阶段 2B 必须在 `ux-design.md` 确认后才能开始。
+
+阶段 2B 不需要你把提示词粘贴到外部设计工具。默认由 AI 直接产出设计图；只有你明确只要提示词，或本地无法渲染出图时，才以提示词作为交付形式。
 
 ## 固定文件
 
 阶段 1 输入：
 
 ```text
-docs/stages/01-requirement-analysis/requirement-analysis.md
+code/docs/requirement-analysis.md
 ```
 
 阶段 2 Skill：
@@ -40,14 +42,14 @@ docs/stages/02-product-design/SKILL.md
 阶段 2A 输出：
 
 ```text
-docs/stages/02-product-design/ux-design.md
+code/docs/ux-design.md
 ```
 
 阶段 2B 输入和输出：
 
 ```text
-docs/stages/02-product-design/ux-design.md
-docs/stages/02-product-design/ui-design.md
+code/docs/ux-design.md
+code/docs/ui-design.md
 ```
 
 当前不需要用户填写任何模板。`ux-design.md` 和 `ui-design.md` 均由 AI 按 Skill 通过交互式问答生成。
@@ -91,7 +93,7 @@ UX 阶段不关注：
 AI 必须先读取：
 
 ```text
-docs/stages/01-requirement-analysis/requirement-analysis.md
+code/docs/requirement-analysis.md
 ```
 
 先总结与用户体验有关的内容：
@@ -166,7 +168,7 @@ UX 草稿中的待确认事项不能只列出后直接结束。每一项必须�
 只有用户确认以下内容后，才能生成：
 
 ```text
-docs/stages/02-product-design/ux-design.md
+code/docs/ux-design.md
 ```
 
 最终 UX 文档必须保留编号、流程、页面、状态、交互和验收标准，作为阶段 2B 的唯一 UX 输入。
@@ -194,7 +196,7 @@ docs/stages/02-product-design/ux-design.md
 
 ## 目标
 
-把已确认的 UX 文档转化为可直接交给 AI 设计工具使用的 UI 提示词和设计图，形成可供后续阶段引用的 UI 文档。
+把已确认的 UX 文档转化为 UI 设计规范、设计图提示词和设计图，形成可供后续阶段引用的 UI 文档。
 
 UI 阶段关注：
 
@@ -204,7 +206,7 @@ UI 阶段关注：
 - 页面视觉布局
 - 图标风格
 - 可访问性（对比度、触控目标、聚焦状态）
-- 设计工具提示词
+- 设计图提示词与设计图的直接输出
 
 UI 阶段不关注：
 
@@ -220,7 +222,7 @@ UI 阶段不关注：
 AI 必须先读取：
 
 ```text
-docs/stages/02-product-design/ux-design.md
+code/docs/ux-design.md
 ```
 
 核对页面清单（`PAGE-###`）、页面状态（`STATE-###`）、关键交互（`INTERACTION-###`）和内容文案（`CONTENT-###`）。如果 `ux-design.md` 仍有未处理的待确认事项，不能开始阶段 2B。
@@ -239,30 +241,36 @@ docs/stages/02-product-design/ux-design.md
 
 ### 第 3 步：生成页面提示词
 
-为每个 `PAGE-###` 生成一段可直接粘贴的提示词，包含页面目标、布局结构、内容元素和需要生成的状态。提示词不得新增页面、功能或流程。
+为每个 `PAGE-###` 生成一段可直接使用的提示词，包含页面目标、布局结构、内容元素和需要生成的状态。提示词不得新增页面、功能或流程。
 
 ### 第 4 步：生成一次性完整提示词
 
-除单页提示词外，还要输出一段完整提示词，把设计系统、全部页面和全局状态合并成一个可直接粘贴的代码块，使用户一次提交就能生成全部 UI 设计图。
+除单页提示词外，还要输出一段完整提示词，把设计系统、全部页面和全局状态合并成一个自包含的代码块，使用户一次提交就能生成全部 UI 设计图。
 
 单页提示词与完整提示词必须描述同一套设计，不得出现颜色、间距或文案不一致。
 
-### 第 5 步：生成设计图并回填
+### 第 5 步：直接输出设计图，或输出设计图提示词
 
-用户把提示词粘贴给 pen.dev 生成设计图。AI 回填效果图链接、版本号和修改记录。
+默认由 AI 直接产出设计图，例如生成 HTML/CSS 设计稿后用无头浏览器截图，把图片落到阶段 2 的产物目录。只有在用户明确只要提示词，或本地无法渲染出图时，才改为输出设计图提示词。
 
-每个效果图必须有 `UI-###` 编号，并对应具体的 `PAGE-###` 和 `STATE-###`。
+直接出图时必须保留可复现的渲染源码，并说明重新出图的方式。跳转型状态（如会话过期）可以不单独出图，但要说明由哪个页面承载。
 
-### 第 6 步：逐项处理 UI 待确认事项
+### 第 6 步：回填设计图和版本
+
+AI 回填设计图文件路径（或用户自行出图时的链接）、图片尺寸、版本号和修改记录。
+
+每个设计图必须有 `UI-###` 编号，并对应具体的 `PAGE-###` 和 `STATE-###`。
+
+### 第 7 步：逐项处理 UI 待确认事项
 
 所有 `UI-TBD-###` 必须处理为确认 / 排除 / 延后 / 继续追问，过程中新增的事项同样加入列表。
 
-### 第 7 步：生成最终 UI 文档
+### 第 8 步：生成最终 UI 文档
 
 用户确认后生成：
 
 ```text
-docs/stages/02-product-design/ui-design.md
+code/docs/ui-design.md
 ```
 
 ## UI 编号规则

@@ -1,0 +1,181 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{min-height:100vh;background:#F1F5F9;color:#0F172A;font-family:Inter,"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;font-size:14px}
+#app{min-height:100vh}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3,h4,h5,p{margin:0}
+
+/* ---------- 顶栏 COMPONENT-001 ---------- */
+.topbar{height:56px;background:#1E293B;color:#F8FAFC;display:flex;align-items:center;gap:12px;padding:0 24px}
+.brand{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;white-space:nowrap}
+.mark{width:22px;height:22px;border-radius:6px;background:#2563EB;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700}
+.search{position:relative;margin-left:12px;width:320px;max-width:40vw}
+.search svg{position:absolute;left:10px;top:10px}
+.search input{width:100%;height:34px;border-radius:6px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#F8FAFC;padding:0 12px 0 32px;font-size:13px;font-family:inherit;outline:none}
+.search input::placeholder{color:#94A3B8}
+.search input:focus{border-color:#93C5FD;background:rgba(255,255,255,.14)}
+.spacer{flex:1}
+.tb-btn{height:32px;display:inline-flex;align-items:center;gap:6px;padding:0 12px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#F8FAFC;font-size:13px}
+.tb-btn:hover{background:rgba(255,255,255,.16)}
+.tb-icon{width:32px;height:32px;display:grid;place-items:center;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);position:relative;color:#F8FAFC;padding:0}
+.tb-icon:hover{background:rgba(255,255,255,.16)}
+.tb-icon.solo{background:#1E293B;border-color:#334155}
+.badge{position:absolute;top:-5px;right:-5px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:#DC2626;color:#fff;font-size:11px;font-weight:600;display:grid;place-items:center;border:2px solid #1E293B}
+.user{display:flex;align-items:center;gap:8px;font-size:13px;color:#E2E8F0}
+.user .av{width:26px;height:26px;border-radius:50%;background:#334155;display:grid;place-items:center;font-size:11px}
+.user .out{color:#94A3B8;font-size:12px;background:none;border:0;padding:0;cursor:pointer}
+.user .out:hover{color:#F8FAFC;text-decoration:underline}
+.link{color:#93C5FD;font-size:13px;background:none;border:0;padding:0;cursor:pointer}
+.link:hover{color:#BFDBFE;text-decoration:underline}
+.tb-btn:focus-visible,.tb-icon:focus-visible,.link:focus-visible,.user .out:focus-visible{outline:2px solid #93C5FD;outline-offset:2px}
+
+/* ---------- 筛选条 ---------- */
+.filterbar{display:flex;align-items:center;gap:12px;padding:16px 24px 14px;flex-wrap:wrap}
+.seg{display:inline-flex;background:#E2E8F0;border-radius:8px;padding:2px}
+.seg span{height:28px;padding:0 14px;border-radius:6px;font-size:13px;display:inline-flex;align-items:center;cursor:pointer}
+.seg .on{background:#fff;color:#0F172A;font-weight:500;box-shadow:0 1px 2px rgba(15,23,42,.08)}
+.seg .off{color:#64748B}
+.seg .off:hover{color:#0F172A}
+.select{height:32px;display:inline-flex;align-items:center;gap:10px;padding:0 10px;border:1px solid #E2E8F0;background:#fff;border-radius:6px;font-size:13px;color:#334155;cursor:pointer;outline:none}
+.select:hover{border-color:#CBD5E1}
+.select:focus{border-color:#2563EB;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.select .ph{color:#94A3B8}
+.caret{color:#94A3B8;font-size:10px}
+.chip{height:28px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;border-radius:14px;background:#EFF6FF;border:1px solid #BFDBFE;color:#1D4ED8;font-size:12px}
+.result{margin-left:auto;font-size:12px;color:#64748B}
+
+/* ---------- 看板 COMPONENT-002 ---------- */
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:0 24px 24px;align-items:start}
+.col{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.col-head{display:flex;align-items:center;gap:8px;padding:2px 2px 4px}
+.col-head h3{margin:0;font-size:15px;font-weight:600}
+.count-pill{font-size:12px;color:#64748B;background:#E2E8F0;border-radius:10px;padding:1px 8px}
+.add-btn{height:34px;border:1px dashed #CBD5E1;border-radius:8px;color:#64748B;font-size:13px;display:grid;place-items:center;background:none}
+.add-btn:hover{border-color:#2563EB;color:#2563EB;background:#EFF6FF}
+.dropzone{border:1px dashed #2563EB;background:rgba(37,99,235,.07);border-radius:8px;height:56px;display:grid;place-items:center;color:#2563EB;font-size:12px}
+
+/* ---------- 任务卡片 COMPONENT-003 ---------- */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.card:hover{border-color:#CBD5E1;box-shadow:0 2px 8px rgba(15,23,42,.08)}
+.card h4{margin:0;font-size:14px;font-weight:500;line-height:1.45}
+.card.done h4{color:#64748B}
+.card.dragging{box-shadow:0 14px 28px rgba(15,23,42,.18);border-color:#BFDBFE;transform:rotate(-1.2deg)}
+.meta{display:flex;align-items:center;gap:8px;font-size:12px;color:#64748B}
+.who{display:flex;align-items:center;gap:6px}
+.av-s{width:20px;height:20px;border-radius:50%;background:#DBEAFE;color:#1D4ED8;font-size:11px;display:grid;place-items:center}
+.av-s.b{background:#DCFCE7;color:#15803D}
+.av-s.c{background:#FEF3C7;color:#B45309}
+.av-s.d{background:#F3E8FF;color:#7E22CE}
+.right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.due.overdue{color:#DC2626;font-weight:500}
+.due.soon{color:#EA580C;font-weight:500}
+.pill{font-size:11px;border-radius:10px;padding:1px 8px;border:1px solid transparent;white-space:nowrap}
+.pill.high{color:#DC2626;background:#FEF2F2;border-color:#FECACA}
+.pill.mid{color:#EA580C;background:#FFF7ED;border-color:#FED7AA}
+.pill.low{color:#64748B;background:#F1F5F9;border-color:#E2E8F0}
+.flag{font-size:11px;font-weight:500;white-space:nowrap}
+.flag.overdue{color:#DC2626}
+.flag.soon{color:#EA580C}
+
+/* ---------- 空 / 加载 / 错误 ---------- */
+.sk-card{height:62px;border-radius:8px;background:#fff;border:1px solid #EEF2F7;padding:12px;display:flex;flex-direction:column;gap:8px}
+.sk{background:#E7EDF4;border-radius:6px;height:11px;animation:sk-pulse 1.4s ease-in-out infinite}
+.sk.h8{height:8px}
+@keyframes sk-pulse{0%,100%{opacity:1}50%{opacity:.55}}
+.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:22px 16px;text-align:center;min-height:178px}
+.empty .ic{width:40px;height:40px;border-radius:50%;background:#E2E8F0;display:grid;place-items:center;color:#64748B;font-size:16px}
+.empty h5{margin:0;font-size:14px;font-weight:500}
+.empty p{margin:0;font-size:12px;color:#64748B}
+.empty .acts{display:flex;gap:8px;margin-top:6px}
+.notice{display:flex;align-items:center;gap:10px;background:#FEF2F2;border:1px solid #FECACA;color:#DC2626;border-radius:8px;padding:12px 14px;font-size:13px}
+
+/* ---------- 提醒面板 COMPONENT-009 ---------- */
+.bell-panel{background:#fff;border:1px solid #E2E8F0;border-radius:10px;box-shadow:0 16px 32px rgba(15,23,42,.14);overflow:hidden}
+.bell-panel .ph{padding:12px 14px;border-bottom:1px solid #EEF2F7;font-size:13px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.bell-item{padding:10px 14px;border-bottom:1px solid #F1F5F9;display:flex;flex-direction:column;gap:4px;cursor:pointer;background:none;border-left:0;border-right:0;border-top:0;text-align:left;width:100%}
+.bell-item:hover{background:#F8FAFC}
+.bell-item:last-child{border-bottom:0}
+.bell-item .t{font-size:13px}
+.bell-item .m{font-size:12px;color:#64748B;display:flex;gap:8px;align-items:center}
+
+/* ---------- 登录页 ---------- */
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:24px}
+.login-card{width:400px;max-width:100%;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:28px;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+.brand-lg{display:flex;align-items:center;gap:12px}
+.mark-lg{width:36px;height:36px;border-radius:9px;background:#2563EB;display:grid;place-items:center;color:#fff;font-weight:700;font-size:15px}
+.login-card h1{margin:0;font-size:20px;font-weight:600}
+.login-card .sub{margin:6px 0 22px;font-size:12px;color:#64748B}
+.login-card .field{margin-bottom:14px}
+.login-card .btn{width:100%;justify-content:center;margin-top:6px}
+.hint{margin-top:16px;text-align:center;font-size:12px;color:#94A3B8}
+.alert{display:flex;gap:8px;align-items:center;background:#FEF2F2;border:1px solid #FECACA;color:#DC2626;border-radius:6px;padding:9px 12px;font-size:13px;margin-bottom:16px}
+
+/* ---------- 表单与按钮 COMPONENT-004 / 005 / 006 / 007 ---------- */
+.field label{display:block;font-size:12px;color:#475569;margin-bottom:6px}
+.field label .req{color:#DC2626}
+.control{height:36px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 10px;border:1px solid #E2E8F0;border-radius:6px;background:#fff;font-size:14px;color:#0F172A;outline:none}
+input.control,select.control,textarea.control{width:100%}
+.control:focus,.control.focus{border-color:#2563EB;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.control::placeholder{color:#94A3B8}
+.control.ph{color:#94A3B8}
+.control:disabled,.control.disabled{background:#F1F5F9;color:#94A3B8;cursor:not-allowed}
+textarea.control{height:auto;min-height:76px;padding:10px;display:block;line-height:1.5;resize:vertical}
+.err{font-size:12px;color:#DC2626;margin-top:6px}
+.btn{height:36px;display:inline-flex;align-items:center;gap:8px;padding:0 16px;border-radius:6px;border:1px solid transparent;font-size:14px;font-weight:500;white-space:nowrap}
+.btn-primary{background:#2563EB;color:#fff}
+.btn-primary:hover:not(:disabled),.btn-primary.hover:not(:disabled){background:#1D4ED8}
+.btn-secondary{background:#fff;border-color:#E2E8F0;color:#334155}
+.btn-secondary:hover:not(:disabled){background:#F8FAFC;border-color:#CBD5E1}
+.btn-danger{background:#DC2626;color:#fff}
+.btn-danger:hover:not(:disabled){background:#B91C1C}
+.btn:disabled,.btn.disabled{background:#CBD5E1;color:#94A3B8;border-color:#CBD5E1;cursor:not-allowed}
+.btn:focus-visible{outline:2px solid #2563EB;outline-offset:2px}
+.btn-sm{height:30px;padding:0 12px;font-size:13px}
+.spin{width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.45);border-top-color:#fff;animation:spin .7s linear infinite}
+.spin.dark{border-color:#CBD5E1;border-top-color:#475569}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- 弹层 COMPONENT-010 ---------- */
+.overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);display:grid;place-items:center;padding:24px;z-index:60;overflow-y:auto}
+.modal{background:#fff;border-radius:10px;box-shadow:0 24px 48px rgba(15,23,42,.28);width:480px;max-width:100%;max-height:calc(100vh - 48px);display:flex;flex-direction:column}
+.modal.w560{width:560px}
+.modal.w400{width:400px}
+.modal-head{padding:16px 20px;font-size:18px;font-weight:600;border-bottom:1px solid #EEF2F7;display:flex;justify-content:space-between;align-items:center;flex:0 0 auto}
+.modal-body{padding:20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto}
+.modal-body.tight{gap:10px}
+.modal-foot{display:flex;justify-content:flex-end;gap:10px;padding:14px 20px;border-top:1px solid #EEF2F7;background:#FBFCFE;border-radius:0 0 10px 10px;flex:0 0 auto}
+.modal-foot.split{justify-content:space-between}
+.confirm-text{font-size:13px;color:#475569;line-height:1.6;margin:0}
+
+/* ---------- 成员表格 COMPONENT-011 ---------- */
+.content{max-width:960px;margin:0 auto;padding:24px}
+.content-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.content-head h1{margin:0;font-size:20px;font-weight:600}
+.panel{background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden}
+.panel+.panel{margin-top:16px}
+.panel-title{padding:14px 16px;border-bottom:1px solid #EEF2F7;font-size:14px;font-weight:600}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:12px;font-weight:500;color:#64748B;background:#F8FAFC;padding:10px 16px;border-bottom:1px solid #EEF2F7}
+td{padding:12px 16px;border-bottom:1px solid #F1F5F9;font-size:14px;color:#0F172A}
+tbody tr:hover td{background:#F8FAFC}
+tr:last-child td{border-bottom:0}
+.tag{font-size:12px;border-radius:10px;padding:2px 10px;border:1px solid}
+.tag.on{color:#16A34A;background:#F0FDF4;border-color:#BBF7D0}
+.tag.off{color:#64748B;background:#F1F5F9;border-color:#E2E8F0}
+.tag.admin{color:#1D4ED8;background:#EFF6FF;border-color:#BFDBFE}
+.row-actions{display:flex;gap:8px}
+.form-row{display:grid;grid-template-columns:1fr 1fr 1fr 130px auto;gap:12px;align-items:start;padding:16px;background:#F8FAFC;border-bottom:1px solid #EEF2F7}
+.form-row .btns{display:flex;gap:8px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ---------- 全局提示 COMPONENT-012 ---------- */
+.toast-stack{position:fixed;top:16px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:100;pointer-events:none}
+.toast{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:8px 16px;border-radius:8px;font-size:14px;border:1px solid transparent;box-shadow:0 8px 20px rgba(15,23,42,.12);background:#fff;pointer-events:auto;cursor:pointer}
+.toast.success{color:#16A34A;background:#F0FDF4;border-color:#BBF7D0}
+.toast.error{color:#DC2626;background:#FEF2F2;border-color:#FECACA}
+.toast-dot{width:8px;height:8px;border-radius:50%;background:currentColor;flex:0 0 auto}
+
+/* ---------- 拖拽插槽（看板页包裹任务卡片） ---------- */
+.card-slot{display:block;min-width:0}
+.card-slot.dragging{opacity:.5}

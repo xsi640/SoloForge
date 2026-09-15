@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>UI-003 · PAGE-003 成员管理页</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="mark">S</span>任务看板</div>
+  <div class="search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg><input placeholder="搜索任务标题或描述"></div>
+  <div class="spacer"></div>
+  <div class="tb-btn">筛选</div>
+  <div class="tb-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F8FAFC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15.5V10a6 6 0 1 0-12 0v5.5L4.5 18h15L18 15.5z"/><path d="M10.2 21a2 2 0 0 0 3.6 0"/></svg></div>
+  <div class="user"><span class="av">张</span>张明<span class="out">退出</span></div>
+  <div class="link">成员管理</div>
+</header>
+<div class="content">
+  <div class="content-head"><h1>成员管理</h1><span class="btn btn-primary">+ 新增成员</span></div>
+  <div class="panel">
+  <table>
+    <thead><tr><th style="width:180px">登录名</th><th>显示名</th><th style="width:120px">状态</th><th style="width:300px">操作</th></tr></thead>
+    <tbody><tr>
+  <td>zhangming</td>
+  <td>张明 <span class="tag admin">管理员</span></td>
+  <td><span class="tag on">启用</span></td>
+  <td><div class="row-actions">
+    <span class="btn btn-secondary btn-sm">重置密码</span>
+    <span class="btn btn-secondary btn-sm disabled">停用</span><span style="font-size:12px;color:#94A3B8;align-self:center">不可停用当前账号</span>
+  </div></td>
+</tr>
+    <tr>
+  <td>wangqiang</td>
+  <td>王强</td>
+  <td><span class="tag on">启用</span></td>
+  <td><div class="row-actions">
+    <span class="btn btn-secondary btn-sm">重置密码</span>
+    <span class="btn btn-secondary btn-sm">停用</span>
+  </div></td>
+</tr>
+    <tr>
+  <td>liting</td>
+  <td>李婷</td>
+  <td><span class="tag on">启用</span></td>
+  <td><div class="row-actions">
+    <span class="btn btn-secondary btn-sm">重置密码</span>
+    <span class="btn btn-secondary btn-sm">停用</span>
+  </div></td>
+</tr>
+    <tr>
+  <td>zhaolei</td>
+  <td>赵磊</td>
+  <td><span class="tag on">启用</span></td>
+  <td><div class="row-actions">
+    <span class="btn btn-secondary btn-sm">重置密码</span>
+    <span class="btn btn-secondary btn-sm">停用</span>
+  </div></td>
+</tr>
+    <tr>
+  <td>sunqi</td>
+  <td>孙琦</td>
+  <td><span class="tag off">停用</span></td>
+  <td><div class="row-actions">
+    <span class="btn btn-secondary btn-sm">重置密码</span>
+    <span class="btn btn-secondary btn-sm">启用</span>
+  </div></td>
+</tr></tbody>
+  </table>
+</div>
+</div>
+<div class="sec-title">页面状态 · STATE-014 ~ STATE-017</div>
+<div class="gallery g1"><div class="frame"><div class="cap"><b>STATE-015</b><span>PAGE-003 · 新增表单展开</span></div><div class="body " style="background:#F1F5F9"><div class="panel">
+  <div class="panel-title">新增成员</div>
+  <div class="form-row">
+    <div class="field"><label>登录名 <span class="req">*</span></label><div class="control focus">wangqiang</div><div class="err">登录名已存在，请更换</div></div>
+    <div class="field"><label>显示名 <span class="req">*</span></label><div class="control">王强</div></div>
+    <div class="field"><label>密码 <span class="req">*</span></label><div class="control ph">至少 6 位</div></div>
+    <div class="field"><label>状态</label><div class="control">启用<span class="caret">&#9660;</span></div></div>
+    <div class="btns" style="padding-top:22px"><span class="btn btn-primary">保存</span><span class="btn btn-secondary">取消</span></div>
+  </div>
+</div></div></div></div>
+<div class="gallery g2">
+  <div class="frame"><div class="cap"><b>STATE-016</b><span>PAGE-003 · 重置密码弹窗</span></div><div class="body flush fixed" style="height:300px;position:relative"><div class="overlay" style="padding:20px"><div class="modal">
+  <div class="modal-head">重置密码</div>
+  <div class="modal-body">
+    <p class="confirm-text" style="margin:0">为成员「王强」设置新密码，保存后立即生效。</p>
+    <div class="field"><label>新密码 <span class="req">*</span></label><div class="control focus">••••••</div></div>
+  </div>
+  <div class="modal-foot"><span class="btn btn-secondary">取消</span><span class="btn btn-primary">确认</span></div>
+</div></div></div></div>
+  <div class="frame"><div class="cap"><b>STATE-017</b><span>PAGE-003 · 停用确认</span></div><div class="body flush fixed" style="height:300px;position:relative"><div class="overlay" style="padding:20px"><div class="modal w400">
+  <div class="modal-head">停用成员</div>
+  <div class="modal-body"><p class="confirm-text">停用后「孙琦」将无法登录，其名下任务保留、负责人不变。</p></div>
+  <div class="modal-foot"><span class="btn btn-secondary">取消</span><span class="btn btn-danger">确认停用</span></div>
+</div></div></div></div>
+</div></body></html>

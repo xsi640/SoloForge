@@ -52,7 +52,7 @@
 阶段 1 定稿后，最终需求分析文档统一保存为：
 
 ```text
-docs/stages/01-requirement-analysis/requirement-analysis.md
+code/docs/requirement-analysis.md
 ```
 
 这个文件名和路径固定不变，阶段 2 会直接读取它作为输入。
@@ -159,7 +159,7 @@ AI 会把发现的问题按“必须澄清”和“建议补充”分好类，�
 - 每个未确定事项都已确认、排除或明确延期
 - 延期事项已记录后续处理方式
 
-完成后，将最终版本保存为 `docs/stages/01-requirement-analysis/requirement-analysis.md`，阶段 2 直接读取这个文件作为输入。
+完成后，将最终版本保存为 `code/docs/requirement-analysis.md`，阶段 2 直接读取这个文件作为输入。
 
 ---
 
@@ -213,4 +213,4 @@ AI 不应该替你做最终判断。真正的最终判断仍然由你来做。
 
 - 阶段 2：产品设计（先 UX，再 UI）
 
-阶段 2 会直接读取 `requirement-analysis.md`，通过交互式询问梳理 UX，再基于 UX 生成 UI 效果图。
+阶段 2 会直接读取 `requirement-analysis.md`，通过交互式询问梳理 UX，再基于 UX 生成 UI 设计图。

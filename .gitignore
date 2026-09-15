@@ -1,0 +1,20 @@
+# 构建产物与依赖
+node_modules/
+target/
+dist/
+
+# H2 运行时数据
+data/
+*.mv.db
+*.trace.db
+*.lock.db
+
+# 日志
+*.log
+
+# 编辑器与系统
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db

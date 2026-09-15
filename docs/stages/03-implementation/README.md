@@ -31,14 +31,14 @@
 阶段 1 输入：
 
 ```text
-docs/stages/01-requirement-analysis/requirement-analysis.md
+code/docs/requirement-analysis.md
 ```
 
 阶段 2 参考输入（可选）：
 
 ```text
-docs/stages/02-product-design/ux-design.md
-docs/stages/02-product-design/ui-design.md
+code/docs/ux-design.md
+code/docs/ui-design.md
 ```
 
 阶段 3 Skill：
@@ -47,20 +47,37 @@ docs/stages/02-product-design/ui-design.md
 docs/stages/03-implementation/SKILL.md
 ```
 
+阶段 3B 编码子 Skill（任务数量较多时使用）：
+
+```text
+docs/stages/03-implementation/coding/SKILL.md
+docs/stages/03-implementation/coding/templates/agent-task-brief.md
+```
+
 阶段 3A 输出：
 
 ```text
-docs/stages/03-implementation/tech-architecture.md
+code/docs/tech-architecture.md
 ```
 
 阶段 3B 输出：
 
 ```text
-docs/stages/03-implementation/tasks.md
-docs/stages/03-implementation/api-design.md
+code/docs/tasks.md
+code/docs/implementation-record.md
+code/docs/api-design.md
 ```
 
-当前不需要用户填写任何模板。三份文档均由 AI 按 Skill 通过交互式问答生成。
+当前不需要用户填写任何模板。上述文档中，`tech-architecture.md`、`tasks.md` 与 `api-design.md` 由 AI 按 Skill 通过交互式问答生成；`implementation-record.md` 在实现过程中随进展记录。
+
+阶段 3B 输出的代码位于仓库的 `code/` 目录：
+
+```text
+code/backend    Maven + Spring Boot 后端
+code/frontend   Vite + Vue 前端
+code/deploy     部署配置与运行手册
+code/scripts    端到端验证脚本
+```
 
 如果 `requirement-analysis.md` 不存在，或阶段 1 仍有未处理的未确定事项，应先回到阶段 1。
 
@@ -127,7 +144,7 @@ AI 主动检查架构与需求是否一致、是否过度设计、每个选型�
 所有 `ARCH-TBD-###` 逐项处理为确认、排除、延后或继续追问。你最终确认后生成：
 
 ```text
-docs/stages/03-implementation/tech-architecture.md
+code/docs/tech-architecture.md
 ```
 
 ## 技术架构文档结构
@@ -203,8 +220,8 @@ AI 读取 `tech-architecture.md`，总结分层、模块清单、数据实体、
 生成：
 
 ```text
-docs/stages/03-implementation/tasks.md
-docs/stages/03-implementation/api-design.md
+code/docs/tasks.md
+code/docs/api-design.md
 ```
 
 ### 第 6 步：执行实现并更新状态
@@ -254,4 +271,4 @@ docs/stages/03-implementation/api-design.md
 
 - 阶段 4：测试阶段
 
-阶段 4 会读取 `tasks.md` 和 `api-design.md` 作为测试输入。
+阶段 4 会读取 `tasks.md` 和 `api-design.md` 作为测试输入。阶段 3B 的实际执行方式见 [implementation-record.md](../../../code/docs/implementation-record.md)；当任务数量较多时可按 [coding/SKILL.md](coding/SKILL.md) 组织编码。
