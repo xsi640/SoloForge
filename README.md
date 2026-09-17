@@ -26,24 +26,24 @@ SoloForge 的价值在于：
 
 当前仓库中的主要内容如下：
 
-- [docs/AI-Development-Framework.md](docs/AI-Development-Framework.md)  
+- [template/AI-Development-Framework.md](template/AI-Development-Framework.md)  
   总框架文档，说明 AI 时代软件开发的总体工作方法、阶段划分、AI 协作方式和关键输出。
-- [docs/stages/01-requirement-analysis/README.md](docs/stages/01-requirement-analysis/README.md)  
+- [template/stages/01-requirement-analysis/README.md](template/stages/01-requirement-analysis/README.md)  
   阶段 1：需求分析阶段。通过交互式对话把一个想法逐步整理成需求分析文档。
-- [docs/stages/02-product-design/README.md](docs/stages/02-product-design/README.md)  
+- [template/stages/02-product-design/README.md](template/stages/02-product-design/README.md)  
   阶段 2：产品设计阶段，先做 UX 再做 UI。先交互式生成 UX 文档，再建立 UI 设计规范并直接产出设计图（也可只输出设计图提示词）。
-- [docs/stages/03-implementation/README.md](docs/stages/03-implementation/README.md)  
-  阶段 3：研发阶段。先做技术架构选型，再拆解任务并实现。
-- [docs/stages/03-implementation/coding/SKILL.md](docs/stages/03-implementation/coding/SKILL.md)  
-  阶段 3B 的编码 Skill：任务数量较多时，先冻结契约、再按模块并行交给多个 AI 子代理，并由协调者统一完成集成与端到端验证。
-- [docs/stages/04-testing/README.md](docs/stages/04-testing/README.md)  
-  阶段 4：测试阶段模板。
-- [docs/stages/05-release/README.md](docs/stages/05-release/README.md)  
-  阶段 5：发布阶段模板。
-- [code/README.md](code/README.md)  
-  阶段 3 的落地实现：团队任务看板（Spring Boot + Vue），含阶段产物文档、部署手册与验证脚本；测试产物说明见 [code/test-artifacts/README.md](code/test-artifacts/README.md)。
+- [template/stages/03-code-design/README.md](template/stages/03-code-design/README.md)  
+  阶段 3：代码设计阶段。先做技术架构选型，再拆解任务并定稿任务文档与 API 文档。
+- [template/stages/04-coding/README.md](template/stages/04-coding/README.md)  
+  阶段 4：代码实现阶段。按已定稿的任务与 API 文档实现代码，记录实现过程并做端到端验证；任务数量较多时先冻结契约、再按模块并行交给多个 AI 子代理。
+- [template/stages/05-testing/README.md](template/stages/05-testing/README.md)  
+  阶段 5：测试阶段模板。
+- [template/stages/06-release/README.md](template/stages/06-release/README.md)  
+  阶段 6：发布阶段模板。
 
-其中阶段 1、2、3 各有一份 `SKILL.md`，是给 AI 执行该阶段用的交互式指令；阶段 3 另有一份 `coding/SKILL.md`，用于任务数量较多时的编码。README 面向人阅读，说明阶段目标、操作步骤和固定产物。阶段 4、5 目前只有 README 模板。
+其中阶段 1、2、3、4 各有一份 `SKILL.md`，是给 AI 执行该阶段用的交互式指令；阶段 4 的 `SKILL.md` 还包含并行实现方式与子代理任务书模板。README 面向人阅读，说明阶段目标、操作步骤和固定产物。阶段 5、6 目前只有 README 模板。
+
+`template/` 只放方法模板，不含任何具体项目的产物。用这套模板推进一个项目时，各阶段的过程文档统一放在该项目根目录下的 `docs/` 目录，直接放在 `docs/` 根层（如 `docs/01-requirement-analysis.md`、`docs/03-tasks.md`、`docs/04-implementation-record.md`），文件名以阶段编号开头；阶段 2B 的设计图放在 `docs/design/` 子目录，文件名以 `UI-###` 编号开头（如 `UI-001-login.png`）；阶段 4 生成的代码放在项目根目录下。
 
 ## 当前推荐的开发方法
 
@@ -58,18 +58,21 @@ SoloForge 的价值在于：
 - 产出产品设计与 UI/UX 草图说明
 - 确认先做什么、后做什么
 
-### 3. 研发阶段
-- 先做技术架构选型，输出技术架构文档，锁定技术栈、分层、模块划分与接口约定
-- 产出 API 文档
-- 生成任务文档，用于 AI 并发开发与任务进度跟踪
-- 进行代码实现与文档补充
+### 3. 代码设计阶段
+- 3A 技术架构选型：输出技术架构文档，锁定技术栈、分层、模块划分与接口约定
+- 3B 任务拆解与文档编写：产出 API 文档与任务文档，用于 AI 并发开发与任务进度跟踪
 
-### 4. 测试阶段
+### 4. 代码实现阶段
+- 按已定稿的任务文档实现代码，每完成一个任务回填状态
+- 记录实现过程与集成阶段发现的缺陷
+- 真实运行并完成端到端验证
+
+### 5. 测试阶段
 - 制定测试重点和关键路径
 - 让 AI 生成测试用例与辅助建议
 - 进行人工测试与问题修复
 
-### 5. 发布阶段
+### 6. 发布阶段
 - 编译与构建产物
 - 准备部署包
 - 生成发布说明与回滚方案
@@ -130,7 +133,7 @@ AI 不承担最终决策，最终判断和责任仍然由人来负责。
 1. 先做需求分析
 2. 再做产品设计与 UI/UX
 3. 然后完成技术架构选型，形成 API 说明和任务文档
-4. 接着执行开发与测试
+4. 接着按已定稿的文档实现代码，再进入测试
 5. 最后进行发布与复盘
 
 ## 结论
